@@ -402,20 +402,39 @@ h1 {
 /* ============================================
    LOGO
    ============================================ */
+/* Sección del logo - Contenedor principal */
+/* Sección del logo - Contenedor principal */
 .logo-section {
     text-align: center;
-    margin-top: 15px;
-    padding: 10px;
+    /* Centra el contenido del texto */
+    margin-top: 8px;
+    /* Espacio superior */
+    padding: 8px;
+    /* Espacio interno */
     background: linear-gradient(135deg, #00BCD4, #0097A7);
-    border-radius: 18px;
+    /* Gradiente de fondo azul claro a azul oscuro */
+    border-radius: 40px;
+    /* Bordes redondeados */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Sombra para efecto de elevación */
+    width: 40%;
+    /* Ancho del 60% del contenedor padre */
+    margin-left: auto;
+    /* Centrado horizontal automático */
+    margin-right: auto;
+    /* Centrado horizontal automático */
 }
 
+/* Texto dentro de la sección del logo */
 .logo-section div {
     color: white;
+    /* Color del texto en blanco */
     font-weight: bold;
+    /* Texto en negrita */
     font-size: 18px;
+    /* Tamaño de la fuente */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Sombra del texto para mejor legibilidad */
 }
 
 /* ============================================
