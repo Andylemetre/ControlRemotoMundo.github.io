@@ -17,6 +17,9 @@ body {
     padding: 20px;
 }
 
+/* ============================================
+   HEADER
+   ============================================ */
 header {
     text-align: center;
     color: white;
@@ -34,6 +37,9 @@ h1 {
     opacity: 0.9;
 }
 
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
 .container {
     display: flex;
     gap: 40px;
@@ -41,27 +47,38 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     max-width: 1200px;
+    width: 100%;
 }
 
 .page {
     display: none;
     animation: fadeIn 0.5s ease;
+    width: 100%;
 }
 
 .page.active {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-/* CONTROL REMOTO */
+/* ============================================
+   CONTROL REMOTO
+   ============================================ */
 .remote {
     background: linear-gradient(145deg, #353535, #252525);
     border-radius: 35px;
     padding: 30px 22px;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     margin: 0 auto;
 }
 
+/* ============================================
+   BOTONES GENERALES
+   ============================================ */
 .btn {
     border: none;
     cursor: pointer;
@@ -79,7 +96,9 @@ h1 {
     transform: translateY(0px);
 }
 
-/* BOTONES DE ENCENDIDO */
+/* ============================================
+   BOTONES DE ENCENDIDO
+   ============================================ */
 .power-row {
     display: flex;
     justify-content: space-between;
@@ -117,7 +136,9 @@ h1 {
     font-weight: bold;
 }
 
-/* VOZ Y CONFIGURACIÓN */
+/* ============================================
+   VOZ Y CONFIGURACIÓN
+   ============================================ */
 .voice-row {
     display: flex;
     justify-content: center;
@@ -156,7 +177,9 @@ h1 {
     border-radius: 50%;
 }
 
-/* SECCIÓN OK Y CARDINALES */
+/* ============================================
+   SECCIÓN OK Y CARDINALES
+   ============================================ */
 .ok-section {
     margin: 25px 0;
     display: flex;
@@ -167,7 +190,7 @@ h1 {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(145deg, white, white);
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -191,50 +214,51 @@ h1 {
     position: absolute;
     width: 20px;
     height: 20px;
-    border-radius: 5%;
-    background: linear-gradient(145deg, white, white);
-    color: white;
-    font-size: 28px;
+    border-radius: 3px;
+    background: transparent;
+    color: #2563eb;
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     border: none;
-
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cardinal-btn:hover {
-    transform: scale(1.1);
-    filter: brightness(1.1);
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    transform: scale(1.2);
+    color: #1e40af;
 }
 
 .cardinal-up {
-    top: 5px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .cardinal-down {
-    bottom: 5px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .cardinal-left {
-    left: 5px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .cardinal-right {
-    right: 5px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* NAVEGACIÓN */
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
 .nav-row {
     display: flex;
     justify-content: space-around;
@@ -274,7 +298,9 @@ h1 {
     border-radius: 1px;
 }
 
-/* HOME */
+/* ============================================
+   HOME
+   ============================================ */
 .home-btn {
     width: 60px;
     height: 60px;
@@ -294,7 +320,9 @@ h1 {
     clip-path: polygon(50% 0%, 100% 35%, 100% 100%, 65% 100%, 65% 60%, 35% 60%, 35% 100%, 0% 100%, 0% 35%);
 }
 
-/* VOLUMEN Y CANALES */
+/* ============================================
+   VOLUMEN Y CANALES
+   ============================================ */
 .volume-channel-row {
     display: flex;
     justify-content: space-between;
@@ -330,7 +358,9 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* APLICACIONES */
+/* ============================================
+   APLICACIONES
+   ============================================ */
 .app-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -369,7 +399,9 @@ h1 {
     color: #00BCD4;
 }
 
-/* LOGO */
+/* ============================================
+   LOGO
+   ============================================ */
 .logo-section {
     text-align: center;
     margin-top: 15px;
@@ -386,7 +418,9 @@ h1 {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* MENÚ EDUCATIVO */
+/* ============================================
+   MENÚ EDUCATIVO
+   ============================================ */
 .nav-menu {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 25px;
@@ -442,240 +476,119 @@ h1 {
     opacity: 0.9;
 }
 
-/* MODAL */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 25px;
-    padding: 40px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-    position: relative;
-    max-height: 80vh;
-    overflow-y: auto;
-    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f0f0f0;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    color: #666;
-}
-
-.close-btn:hover {
-    background: #e0e0e0;
-    transform: rotate(90deg);
-}
-
-.info-icon {
-    font-size: 70px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* ANIMACIONES */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    .nav-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .remote {
-        width: 280px;
-        padding: 25px 18px;
-    }
-}
-
-/* Estilos para las páginas de contenido educativo */
-/* Define el contenedor principal de las páginas educativas */
+/* ============================================
+   PÁGINAS DE CONTENIDO EDUCATIVO
+   ============================================ */
 .content-page {
     background: rgba(255, 255, 255, 0.95);
-    /* Fondo blanco semi-transparente */
     border-radius: 25px;
-    /* Bordes redondeados */
     padding: 40px;
-    /* Espaciado interno */
-    max-width: 800px;
-    /* Ancho máximo */
+    max-width: 900px;
     width: 100%;
-    /* Ocupa todo el ancho disponible */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    /* Sombra suave */
+    margin: 0 auto;
 }
 
-/* Estilo para el título principal de la página */
 .content-page h2 {
     color: #667eea;
-    /* Color azul para títulos */
     font-size: 2.5em;
-    /* Tamaño de fuente grande */
-    margin-bottom: 25px;
-    /* Espacio inferior */
+    margin-bottom: 30px;
     text-align: center;
-    /* Centrado */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Contenedor para cada sección de contenido */
 .content-section {
     margin-bottom: 35px;
-    /* Espacio entre secciones */
 }
 
-/* Estilo para subtítulos dentro de las secciones */
 .content-section h3 {
     color: #5a67d8;
-    /* Color azul más oscuro */
     font-size: 1.8em;
-    /* Tamaño de fuente mediano */
     margin-bottom: 15px;
-    /* Espacio inferior */
     display: flex;
-    /* Permite alineación con iconos */
     align-items: center;
-    /* Centra verticalmente */
     gap: 10px;
-    /* Espacio entre elementos */
 }
 
-/* Estilo para párrafos de texto */
 .content-section p {
     color: #555;
-    /* Color gris oscuro */
     line-height: 1.8;
-    /* Espaciado entre líneas */
     font-size: 1.1em;
-    /* Tamaño de fuente legible */
-    text-align: center;
-    /* Centrado */
+    text-align: justify;
     margin-bottom: 15px;
-    /* Espacio inferior */
 }
 
-/* Estilo para listas no ordenadas */
 .content-section ul {
     color: #555;
-    /* Color gris oscuro */
     line-height: 1.8;
-    /* Espaciado entre líneas */
     font-size: 1.1em;
-    /* Tamaño de fuente legible */
-    margin-left: 25px;
-    /* Sangría izquierda */
+    margin-left: 30px;
+    list-style-type: disc;
 }
 
-/* Estilo para elementos de lista */
 .content-section li {
-    margin-bottom: 10px;
-    /* Espacio entre elementos */
+    margin-bottom: 12px;
 }
 
+/* Cajas de destacado */
 .highlight-box {
     background: linear-gradient(135deg, #e0e7ff 0%, #cfd9ff 100%);
     border-left: 5px solid #667eea;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
-    margin: 20px 0;
+    margin: 25px 0;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.1);
 }
 
 .highlight-box h4 {
     color: #5a67d8;
-    margin-bottom: 10px;
-    font-size: 1.3em;
+    margin-bottom: 12px;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
+.highlight-box p {
+    color: #4a5568;
+    font-size: 1.05em;
+}
+
+.highlight-box ul {
+    margin-left: 25px;
+    color: #4a5568;
+}
+
+/* Cajas de advertencia */
 .warning-box {
     background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
     border-left: 5px solid #ff5555;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
-    margin: 20px 0;
+    margin: 25px 0;
+    box-shadow: 0 4px 10px rgba(255, 85, 85, 0.1);
 }
 
 .warning-box h4 {
     color: #e53e3e;
-    margin-bottom: 10px;
-    font-size: 1.3em;
-}
-
-.back-button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 25px;
-    font-size: 1.1em;
+    margin-bottom: 12px;
+    font-size: 1.4em;
     font-weight: bold;
-    cursor: pointer;
-    display: block;
-    margin: 30px auto 0;
-    transition: all 0.3s ease;
 }
 
-.back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+.warning-box p {
+    color: #4a5568;
+    font-size: 1.05em;
 }
 
+.warning-box ul {
+    margin-left: 25px;
+    color: #4a5568;
+}
+
+/* Visualización de tarjetas */
 .fiber-visual {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     flex-wrap: wrap;
     margin: 30px 0;
 }
@@ -687,7 +600,14 @@ h1 {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     flex: 1;
-    min-width: 200px;
+    min-width: 180px;
+    max-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.fiber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .fiber-card-icon {
@@ -699,8 +619,44 @@ h1 {
     color: #667eea;
     margin-bottom: 10px;
     font-size: 1.3em;
+    font-weight: bold;
 }
 
+.fiber-card p {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Botón de regreso */
+.back-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.back-button:active {
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -713,7 +669,6 @@ h1 {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    animation: fadeIn 0.3s ease;
 }
 
 .modal-overlay.active {
@@ -728,9 +683,9 @@ h1 {
     width: 90%;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
     position: relative;
-    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     max-height: 80vh;
     overflow-y: auto;
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn {
@@ -762,30 +717,23 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Estilos para el título dentro del modal */
 .modal-content h2 {
     color: #667eea;
-    /* Color azul para el título */
     margin-bottom: 20px;
-    /* Espacio inferior de 20px */
     font-size: 2em;
-    /* Tamaño de fuente grande */
     text-align: center;
-    /* Centra el texto horizontalmente */
 }
 
-/* Estilos para los párrafos dentro del modal */
 .modal-content p {
     color: #555;
-    /* Color gris oscuro para el texto */
     line-height: 1.8;
-    /* Altura de línea aumentada para mejor legibilidad */
-    font-size: 1em;
-    /* Tamaño de fuente ligeramente más grande */
-    text-align: center;
-    /* Centra el texto horizontalmente */
+    font-size: 1.05em;
+    text-align: justify;
 }
 
+/* ============================================
+   ANIMACIONES
+   ============================================ */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -808,17 +756,114 @@ h1 {
     }
 }
 
+/* ============================================
+   RESPONSIVE - MÓVIL
+   ============================================ */
 @media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
     h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .remote {
+        width: 100%;
+        max-width: 280px;
+        padding: 25px 18px;
+    }
+
+    .content-page {
+        padding: 25px 20px;
+    }
+
+    .content-page h2 {
         font-size: 2em;
     }
 
-    .content-page,
-    .nav-menu {
-        padding: 25px 20px;
+    .content-section h3 {
+        font-size: 1.5em;
+    }
+
+    .content-section p,
+    .content-section ul {
+        font-size: 1em;
+    }
+
+    .fiber-visual {
+        gap: 15px;
+    }
+
+    .fiber-card {
+        min-width: 140px;
+        padding: 20px;
+    }
+
+    .fiber-card-icon {
+        font-size: 2.5em;
+    }
+
+    .fiber-card h4 {
+        font-size: 1.1em;
     }
 
     .nav-grid {
         grid-template-columns: 1fr;
+    }
+
+    .nav-menu {
+        padding: 20px;
+    }
+
+    .nav-menu h2 {
+        font-size: 1.5em;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+
+    .back-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    .highlight-box,
+    .warning-box {
+        padding: 20px;
+    }
+
+    .highlight-box h4,
+    .warning-box h4 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .content-page h2 {
+        font-size: 1.6em;
+    }
+
+    .content-section h3 {
+        font-size: 1.3em;
+    }
+
+    .fiber-card {
+        min-width: 120px;
+        max-width: 100%;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
     }
 }
