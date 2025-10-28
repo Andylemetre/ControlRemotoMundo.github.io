@@ -762,18 +762,28 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Estilos para el título dentro del modal */
 .modal-content h2 {
     color: #667eea;
+    /* Color azul para el título */
     margin-bottom: 20px;
+    /* Espacio inferior de 20px */
     font-size: 2em;
+    /* Tamaño de fuente grande */
     text-align: center;
+    /* Centra el texto horizontalmente */
 }
 
+/* Estilos para los párrafos dentro del modal */
 .modal-content p {
     color: #555;
+    /* Color gris oscuro para el texto */
     line-height: 1.8;
-    font-size: 1.1em;
+    /* Altura de línea aumentada para mejor legibilidad */
+    font-size: 1em;
+    /* Tamaño de fuente ligeramente más grande */
     text-align: center;
+    /* Centra el texto horizontalmente */
 }
 
 @keyframes fadeIn {
