@@ -742,27 +742,6 @@ h1 {
     text-align: justify;
 }
 
-/*
- * Estilos de Animaciones y Media Queries
- * 
- * @keyframes fadeIn
- * Crea un efecto de animación de aparición gradual
- * - Transición de opacidad de 0 a 1
- * - Usado para aparición suave de elementos
- *
- * @keyframes slideUp  
- * Crea una animación de deslizamiento hacia arriba con desvanecimiento
- * - Combina cambio de opacidad (0 a 1) con movimiento ascendente
- * - Mueve el elemento 50px hacia arriba mientras aparece
- * - Usado para entrada suave de elementos desde abajo
- *
- * Media Query para pantallas <= 768px (tablets/móvil)
- * Ajustes de diseño responsivo:
- * - Reduce el tamaño de fuente h1 a 2em
- * - Ajusta el padding de content-page y nav-menu a 25px 20px
- * - Cambia nav-grid a diseño de una sola columna
- */
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -785,7 +764,7 @@ h1 {
     }
 }
 
-@media (max-width: 708px) {
+@media (max-width: 768px) {
     h1 {
         font-size: 2em;
     }
