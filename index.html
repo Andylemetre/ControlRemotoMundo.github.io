@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Control Remoto Mundo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+
+        .remote {
+            background: linear-gradient(145deg, #353535, #252525);
+            border-radius: 35px;
+            padding: 30px 22px;
+            width: 300px;
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0px);
+        }
+
+        .power-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .power-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #404040, #2a2a2a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .power-tv {
+            color: #ff5555;
+        }
+
+        .power-box {
+            color: #55ff55;
+        }
+
+        .label {
+            font-size: 9px;
+            color: #999;
+            text-transform: uppercase;
+            margin-top: 3px;
+            font-weight: bold;
+        }
+
+        .voice-row {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .icon-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #404040, #2a2a2a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .voice-btn {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ffffff, #e8e8e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .google-icon {
+            width: 32px;
+            height: 32px;
+            background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+            border-radius: 50%;
+        }
+
+        .ok-section {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ok-ring {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f5f5f5, #d8d8d8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .ok-btn {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #404040, #2a2a2a);
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-row {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0 20px 0;
+        }
+
+        .nav-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #404040, #2a2a2a);
+            color: white;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .tv-icon {
+            width: 24px;
+            height: 20px;
+            border: 2.5px solid white;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .tv-icon::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 3px;
+            background: white;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+
+        .home-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #f5f5f5, #d8d8d8);
+            font-size: 32px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                0 6px 15px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .home-icon {
+            width: 28px;
+            height: 28px;
+            background: #4a4a4a;
+            clip-path: polygon(50% 0%, 100% 35%, 100% 100%, 65% 100%, 65% 60%, 35% 60%, 35% 100%, 0% 100%, 0% 35%);
+        }
+
+        .volume-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .vol-btn {
+            flex: 1;
+            background: linear-gradient(145deg, #404040, #2a2a2a);
+            color: white;
+            border-radius: 25px;
+            padding: 35px 18px;
+            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .mute-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #404040, #2a2a2a);
+            color: white;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .volume-channel-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .app-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .app-btn {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 18px;
+            padding: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-height: 45px;
+        }
+
+        .youtube {
+            color: #FF0000;
+        }
+
+        .netflix {
+            color: white;
+            background: linear-gradient(145deg, #E50914, #b20710);
+        }
+
+        .prime {
+            color: #00A8E1;
+        }
+
+        .mundo {
+            color: #00BCD4;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            background: linear-gradient(135deg, #00BCD4, #0097A7);
+            border-radius: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-section div {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            position: relative;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            background: #e0e0e0;
+            transform: rotate(90deg);
+        }
+
+        .info-icon {
+            font-size: 70px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .modal-content p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .modal-content {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📺 Guía del Control Remoto Mundo</h1>
+        <p class="subtitle">Haz clic en cualquier botón </p>
+        <p class="subtitle">para conocer su función</p>
+    </header>
+
+    <div class="container">
+        <div class="remote">
+            <!-- Power Buttons -->
+            <div class="power-row">
+                <button class="btn power-btn power-tv" onclick="showInfo('tv')">
+                    <div>⏻</div>
+                    <span class="label">TV</span>
+                </button>
+                <button class="btn power-btn power-box" onclick="showInfo('box')">
+                    <div>⏻</div>
+                    <span class="label">Box</span>
+                </button>
+            </div>
+
+            <!-- Voice and Icons -->
+            <div class="voice-row">
+                <button class="btn icon-btn" onclick="showInfo('apps')">⊞</button>
+                <button class="btn voice-btn" onclick="showInfo('voice')">
+                    <div class="google-icon"></div>
+                </button>
+                <button class="btn icon-btn" onclick="showInfo('settings')">⚙️</button>
+            </div>
+
+            <!-- OK Button -->
+            <div class="ok-section">
+                <div class="ok-ring">
+                    <button class="btn ok-btn" onclick="showInfo('ok')">OK</button>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-row">
+                <button class="btn nav-btn" onclick="showInfo('back')">
+                    <span style="font-size: 28px;">←</span>
+                </button>
+                <button class="btn nav-btn" onclick="showInfo('guide')">
+                    <div class="tv-icon"></div>
+                </button>
+            </div>
+
+            <!-- Home Button -->
+            <button class="btn home-btn" onclick="showInfo('home')">
+                <div class="home-icon"></div>
+            </button>
+
+            <!-- Volume, Mute and Channel -->
+            <div class="volume-channel-row">
+                <button class="btn vol-btn" onclick="showInfo('volume')">
+                    <span>+</span>
+                    <span>−</span>
+                </button>
+                <button class="btn mute-btn" onclick="showInfo('mute')">🔇</button>
+                <button class="btn vol-btn" onclick="showInfo('channel')">
+                    <span>∧</span>
+                    <span>∨</span>
+                </button>
+            </div>
+
+            <!-- App Shortcuts -->
+            <div class="app-buttons">
+                <button class="btn app-btn youtube" onclick="showInfo('youtube')">
+                    <span>▶</span> YouTube
+                </button>
+                <button class="btn app-btn netflix" onclick="showInfo('netflix')">
+                    NETFLIX
+                </button>
+                <button class="btn app-btn prime" onclick="showInfo('prime')">
+                    prime video
+                </button>
+                <button class="btn app-btn mundo" onclick="showInfo('mundo')">
+                    mundo go
+                </button>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo-section">
+                <div>mundo GO!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const buttonInfo = {
+            tv: {
+                icon: '📺',
+                title: 'Botón Power TV',
+                description: 'Este botón enciende y apaga tu televisor. Presiona una vez para encender el TV y otra vez para apagarlo. Es útil cuando quieres controlar el televisor directamente sin afectar el decodificador.'
+            },
+            box: {
+                icon: '📡',
+                title: 'Botón Power Box',
+                description: 'Controla el encendido y apagado del decodificador (Set-Top Box). Este botón es independiente del televisor, permitiéndote apagar el decodificador mientras mantienes el TV encendido para otras funciones.'
+            },
+            apps: {
+                icon: '⊞',
+                title: 'Botón de Aplicaciones',
+                description: 'Abre el menú de aplicaciones instaladas en tu decodificador. Desde aquí puedes acceder a todas las apps disponibles como juegos, utilidades y servicios de streaming adicionales.'
+            },
+            voice: {
+                icon: '🎤',
+                title: 'Asistente de Voz',
+                description: 'Activa el control por voz. Mantén presionado este botón y habla para buscar contenido, cambiar canales, abrir apps o hacer preguntas. Por ejemplo: "Buscar películas de acción" o "Abrir Netflix".'
+            },
+            settings: {
+                icon: '⚙️',
+                title: 'Configuración',
+                description: 'Accede al menú de configuración del sistema. Aquí puedes ajustar opciones como idioma, red WiFi, calidad de imagen, sonido, controles parentales y otras preferencias del dispositivo.'
+            },
+            ok: {
+                icon: '✓',
+                title: 'Botón OK/Enter',
+                description: 'Confirma la selección actual o ejecuta la opción destacada en el menú. También funciona como botón de pausa/reproducción en algunos contenidos. Es el botón principal para confirmar acciones.'
+            },
+            back: {
+                icon: '←',
+                title: 'Botón Regresar',
+                description: 'Retrocede a la pantalla anterior o cierra el menú actual. Útil para navegar hacia atrás en los menús o salir de aplicaciones sin cerrarlas completamente.'
+            },
+            guide: {
+                icon: '📺',
+                title: 'Guía de Programación',
+                description: 'Abre la guía electrónica de programación (EPG) donde puedes ver la programación actual y futura de todos los canales. Puedes ver qué está transmitiéndose ahora y qué se transmitirá más tarde.'
+            },
+            home: {
+                icon: '🏠',
+                title: 'Botón Inicio',
+                description: 'Te lleva directamente a la pantalla principal o menú de inicio del sistema. Es útil para regresar rápidamente al inicio desde cualquier aplicación o menú en el que te encuentres.'
+            },
+            volume: {
+                icon: '🔊',
+                title: 'Control de Volumen',
+                description: 'Botón + (arriba): Aumenta el volumen del televisor.<br><br>Botón - (abajo): Disminuye el volumen.<br><br>Presiona repetidamente para ajustar el nivel de sonido a tu preferencia.'
+            },
+            channel: {
+                icon: '📺',
+                title: 'Cambio de Canal',
+                description: 'Botón ∧ (arriba): Sube al siguiente canal.<br><br>Botón ∨ (abajo): Baja al canal anterior.<br><br>Usa estos botones para navegar secuencialmente por los canales disponibles.'
+            },
+            mute: {
+                icon: '🔇',
+                title: 'Botón Silencio (Mute)',
+                description: 'Silencia instantáneamente el audio del televisor. Presiona una vez para silenciar el sonido y vuelve a presionar para restaurar el volumen al nivel anterior. Es útil para silenciar rápidamente el TV durante comerciales o llamadas telefónicas.'
+            },
+            youtube: {
+                icon: '▶️',
+                title: 'Acceso Directo YouTube',
+                description: 'Abre directamente la aplicación de YouTube. Con un solo toque accedes a todo el contenido de YouTube sin necesidad de buscar la app en el menú.'
+            },
+            netflix: {
+                icon: '🎬',
+                title: 'Acceso Directo Netflix',
+                description: 'Lanza instantáneamente la aplicación de Netflix. Accede directamente a tus series y películas favoritas con un solo botón, sin navegar por menús.'
+            },
+            prime: {
+                icon: '📹',
+                title: 'Acceso Directo Prime Video',
+                description: 'Abre la aplicación de Amazon Prime Video directamente. Disfruta de contenido exclusivo de Prime con acceso inmediato desde tu control remoto.'
+            },
+            mundo: {
+                icon: '🌎',
+                title: 'Acceso Directo Mundo GO',
+                description: 'Botón de acceso rápido al servicio Mundo GO. Esta es la plataforma del proveedor que te permite acceder a contenido en vivo y bajo demanda de tu servicio de televisión.'
+            }
+        };
+
+        function showInfo(buttonId) {
+            const info = buttonInfo[buttonId];
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div class="info-icon">${info.icon}</div>
+                <h2>${info.title}</h2>
+                <p>${info.description}</p>
+            `;
+
+            document.getElementById('modalOverlay').classList.add('active');
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'modalOverlay' || event.target.classList.contains('close-btn')) {
+                document.getElementById('modalOverlay').classList.remove('active');
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
