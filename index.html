@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía del Control Remoto Mundo</title>
+    <title>Guía Educativa - Telecomunicaciones</title>
     <style>
         * {
             margin: 0;
@@ -46,6 +46,16 @@
             flex-wrap: wrap;
             justify-content: center;
             position: relative;
+            max-width: 1200px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
         }
 
         .remote {
@@ -57,6 +67,7 @@
                 0 25px 70px rgba(0, 0, 0, 0.6),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
+            margin: 0 auto;
         }
 
         .btn {
@@ -246,9 +257,10 @@
             clip-path: polygon(50% 0%, 100% 35%, 100% 100%, 65% 100%, 65% 60%, 35% 60%, 35% 100%, 0% 100%, 0% 35%);
         }
 
-        .volume-row {
+        .volume-channel-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
             gap: 12px;
         }
@@ -278,14 +290,6 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        }
-
-        .volume-channel-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            gap: 12px;
         }
 
         .app-buttons {
@@ -329,7 +333,7 @@
         .logo-section {
             text-align: center;
             margin-top: 15px;
-            padding: 12px;
+            padding: 10px;
             background: linear-gradient(135deg, #00BCD4, #0097A7);
             border-radius: 18px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -342,7 +346,187 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        /* Modal Styles */
+        /* Navigation Menu */
+        .nav-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .nav-menu h2 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .nav-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-card-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .nav-card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .nav-card-desc {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Educational Content Pages */
+        .content-page {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-page h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .content-section {
+            margin-bottom: 35px;
+        }
+
+        .content-section h3 {
+            color: #5a67d8;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .content-section ul {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-left: 25px;
+        }
+
+        .content-section li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e0e7ff 0%, #cfd9ff 100%);
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: #5a67d8;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            border-left: 5px solid #ff5555;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .warning-box h4 {
+            color: #e53e3e;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .fiber-visual {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .fiber-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .fiber-card-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+        }
+
+        .fiber-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -445,8 +629,13 @@
                 font-size: 2em;
             }
 
-            .modal-content {
-                padding: 30px 25px;
+            .content-page,
+            .nav-menu {
+                padding: 25px 20px;
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -454,93 +643,387 @@
 
 <body>
     <header>
-        <h1>📺 Guía del Control Remoto Mundo</h1>
-        <p class="subtitle">Haz clic en cualquier botón </p>
-        <p class="subtitle">para conocer su función</p>
+        <h1 id="mainTitle">📺 Guía del Control Remoto Mundo</h1>
+        <p class="subtitle" id="mainSubtitle">Haz clic en cualquier botón para conocer su función</p>
     </header>
 
     <div class="container">
-        <div class="remote">
-            <!-- Power Buttons -->
-            <div class="power-row">
-                <button class="btn power-btn power-tv" onclick="showInfo('tv')">
-                    <div>⏻</div>
-                    <span class="label">TV</span>
-                </button>
-                <button class="btn power-btn power-box" onclick="showInfo('box')">
-                    <div>⏻</div>
-                    <span class="label">Box</span>
-                </button>
-            </div>
+        <!-- Página Principal: Control Remoto -->
+        <div id="remotePage" class="page active">
+            <div class="remote">
+                <div class="power-row">
+                    <button class="btn power-btn power-tv" onclick="showInfo('tv')">
+                        <div>⏻</div>
+                        <span class="label">TV</span>
+                    </button>
+                    <button class="btn power-btn power-box" onclick="showInfo('box')">
+                        <div>⏻</div>
+                        <span class="label">Box</span>
+                    </button>
+                </div>
 
-            <!-- Voice and Icons -->
-            <div class="voice-row">
-                <button class="btn icon-btn" onclick="showInfo('apps')">⊞</button>
-                <button class="btn voice-btn" onclick="showInfo('voice')">
-                    <div class="google-icon"></div>
-                </button>
-                <button class="btn icon-btn" onclick="showInfo('settings')">⚙️</button>
-            </div>
+                <div class="voice-row">
+                    <button class="btn icon-btn" onclick="showInfo('apps')">⊞</button>
+                    <button class="btn voice-btn" onclick="showInfo('voice')">
+                        <div class="google-icon"></div>
+                    </button>
+                    <button class="btn icon-btn" onclick="showInfo('settings')">⚙️</button>
+                </div>
 
-            <!-- OK Button -->
-            <div class="ok-section">
-                <div class="ok-ring">
-                    <button class="btn ok-btn" onclick="showInfo('ok')">OK</button>
+                <div class="ok-section">
+                    <div class="ok-ring">
+                        <button class="btn ok-btn" onclick="showInfo('ok')">OK</button>
+                    </div>
+                </div>
+
+                <div class="nav-row">
+                    <button class="btn nav-btn" onclick="showInfo('back')">
+                        <span style="font-size: 28px;">←</span>
+                    </button>
+                    <button class="btn nav-btn" onclick="showInfo('guide')">
+                        <div class="tv-icon"></div>
+                    </button>
+                </div>
+
+                <button class="btn home-btn" onclick="showInfo('home')">
+                    <div class="home-icon"></div>
+                </button>
+
+                <div class="volume-channel-row">
+                    <button class="btn vol-btn" onclick="showInfo('volume')">
+                        <span>+</span>
+                        <span>−</span>
+                    </button>
+                    <button class="btn mute-btn" onclick="showInfo('mute')">🔇</button>
+                    <button class="btn vol-btn" onclick="showInfo('channel')">
+                        <span>∧</span>
+                        <span>∨</span>
+                    </button>
+                </div>
+
+                <div class="app-buttons">
+                    <button class="btn app-btn youtube" onclick="showInfo('youtube')">
+                        <span>▶</span> YouTube
+                    </button>
+                    <button class="btn app-btn netflix" onclick="showInfo('netflix')">
+                        NETFLIX
+                    </button>
+                    <button class="btn app-btn prime" onclick="showInfo('prime')">
+                        Prime Video
+                    </button>
+                    <button class="btn app-btn mundo" onclick="showInfo('mundo')">
+                        Mundo GO!
+                    </button>
+                </div>
+
+                <div class="logo-section">
+                    <div>mundo GO!</div>
                 </div>
             </div>
 
-            <!-- Navigation -->
-            <div class="nav-row">
-                <button class="btn nav-btn" onclick="showInfo('back')">
-                    <span style="font-size: 28px;">←</span>
-                </button>
-                <button class="btn nav-btn" onclick="showInfo('guide')">
-                    <div class="tv-icon"></div>
-                </button>
+            <!-- Menú de navegación -->
+            <div class="nav-menu">
+                <h2>📚 Aprende Más</h2>
+                <div class="nav-grid">
+                    <button class="nav-card" onclick="changePage('telecom')">
+                        <div class="nav-card-icon">🌐</div>
+                        <div class="nav-card-title">Telecomunicaciones</div>
+                        <div class="nav-card-desc">Descubre qué son y cómo funcionan</div>
+                    </button>
+                    <button class="nav-card" onclick="changePage('fiber')">
+                        <div class="nav-card-icon">💡</div>
+                        <div class="nav-card-title">Fibra Óptica</div>
+                        <div class="nav-card-desc">Tecnología de alta velocidad que ofrece Mundo con mucho cariño</div>
+                    </button>
+                    <button class="nav-card" onclick="changePage('care')">
+                        <div class="nav-card-icon">🛡️</div>
+                        <div class="nav-card-title">Cuidado de Equipos</div>
+                        <div class="nav-card-desc">Mantén tus dispositivos seguros</div>
+                    </button>
+                </div>
             </div>
+        </div>
 
-            <!-- Home Button -->
-            <button class="btn home-btn" onclick="showInfo('home')">
-                <div class="home-icon"></div>
-            </button>
+        <!-- Página: Telecomunicaciones -->
+        <div id="telecomPage" class="page">
+            <div class="content-page">
+                <h2>🌐 ¿Qué son las Telecomunicaciones?</h2>
 
-            <!-- Volume, Mute and Channel -->
-            <div class="volume-channel-row">
-                <button class="btn vol-btn" onclick="showInfo('volume')">
-                    <span>+</span>
-                    <span>−</span>
-                </button>
-                <button class="btn mute-btn" onclick="showInfo('mute')">🔇</button>
-                <button class="btn vol-btn" onclick="showInfo('channel')">
-                    <span>∧</span>
-                    <span>∨</span>
-                </button>
+                <div class="content-section">
+                    <h3>🔊 Definición</h3>
+                    <p>Las telecomunicaciones son el conjunto de tecnologías que permiten la transmisión de información
+                        a distancia. La palabra proviene de "tele" (lejos) y "comunicación", y engloba todos los
+                        sistemas que nos permiten comunicarnos sin importar la distancia física.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>💡 ¿Sabías qué?</h4>
+                    <p>Cada día enviamos miles de millones de mensajes, realizamos videollamadas y transmitimos datos a
+                        través de las redes de telecomunicaciones. ¡Todo esto ocurre en fracciones de segundo!</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>📡 Tipos de Telecomunicaciones</h3>
+                    <ul>
+                        <li><strong>Telefonía:</strong> Comunicación de voz a través de redes fijas o móviles</li>
+                        <li><strong>Internet:</strong> Transmisión de datos digitales para acceder a información mundial
+                        </li>
+                        <li><strong>Televisión:</strong> Transmisión de contenido audiovisual en vivo o bajo demanda
+                        </li>
+                        <li><strong>Radio:</strong> Difusión de audio a través de ondas electromagnéticas</li>
+                        <li><strong>Satélites:</strong> Comunicación global mediante señales espaciales</li>
+                    </ul>
+                </div>
+
+                <div class="fiber-visual">
+                    <div class="fiber-card">
+                        <div class="fiber-card-icon">📞</div>
+                        <h4>Voz</h4>
+                        <p>Llamadas y videollamadas</p>
+                    </div>
+                    <div class="fiber-card">
+                        <div class="fiber-card-icon">💻</div>
+                        <h4>Datos</h4>
+                        <p>Internet y navegación</p>
+                    </div>
+                    <div class="fiber-card">
+                        <div class="fiber-card-icon">📺</div>
+                        <h4>Video</h4>
+                        <p>TV y streaming</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>🚀 Importancia en la Vida Moderna</h3>
+                    <p>Las telecomunicaciones han transformado nuestra forma de vivir, trabajar y relacionarnos.
+                        Permiten:</p>
+                    <ul>
+                        <li>Conectar a personas en diferentes partes del mundo instantáneamente</li>
+                        <li>Acceder a información y educación desde cualquier lugar</li>
+                        <li>Realizar transacciones comerciales de manera segura</li>
+                        <li>Disfrutar de entretenimiento a demanda</li>
+                        <li>Trabajar de forma remota y colaborativa</li>
+                    </ul>
+                </div>
+
+                <button class="back-button" onclick="changePage('remote')">← Volver al Inicio</button>
             </div>
+        </div>
 
-            <!-- App Shortcuts -->
-            <div class="app-buttons">
-                <button class="btn app-btn youtube" onclick="showInfo('youtube')">
-                    <span>▶</span> YouTube
-                </button>
-                <button class="btn app-btn netflix" onclick="showInfo('netflix')">
-                    NETFLIX
-                </button>
-                <button class="btn app-btn prime" onclick="showInfo('prime')">
-                    Prime Video
-                </button>
-                <button class="btn app-btn mundo" onclick="showInfo('mundo')">
-                    Mundo GO!
-                </button>
+        <!-- Página: Fibra Óptica -->
+        <div id="fiberPage" class="page">
+            <div class="content-page">
+                <h2>💡 Fibra Óptica: Tecnología del Futuro</h2>
+
+                <div class="content-section">
+                    <h3>🔬 ¿Qué es la Fibra Óptica?</h3>
+                    <p>La fibra óptica es un medio de transmisión de datos que utiliza pulsos de luz para enviar
+                        información a velocidades increíbles. Está compuesta por hilos de vidrio o plástico
+                        extremadamente delgados, más finos que un cabello humano, por donde viaja la luz.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>⚡ Velocidad Impresionante</h4>
+                    <p>La fibra óptica puede transmitir datos a velocidades de hasta 100 Gbps o más, permitiéndote
+                        descargar películas en segundos, realizar videollamadas en alta definición sin interrupciones y
+                        disfrutar de streaming 4K sin buffering.</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>✨ Ventajas de la Fibra Óptica</h3>
+                    <ul>
+                        <li><strong>Velocidad Ultra Rápida:</strong> Conexiones de hasta 100 veces más rápidas que el
+                            cable tradicional</li>
+                        <li><strong>Mayor Estabilidad:</strong> No se ve afectada por interferencias electromagnéticas
+                        </li>
+                        <li><strong>Mayor Distancia:</strong> La señal viaja largas distancias sin perder calidad</li>
+                        <li><strong>Ancho de Banda Superior:</strong> Permite múltiples dispositivos conectados
+                            simultáneamente</li>
+                        <li><strong>Menor Latencia:</strong> Respuesta casi instantánea, ideal para gaming y
+                            videollamadas</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ ¡MUY IMPORTANTE! - La Fibra es FRÁGIL</h4>
+                    <p>La fibra óptica es extremadamente delicada y requiere un manejo cuidadoso:</p>
+                    <ul>
+                        <li><strong>NO doblar:</strong> Doblar el cable puede romper las fibras internas y cortar la
+                            conexión</li>
+                        <li><strong>NO pisar:</strong> El peso puede aplastar y dañar permanentemente las fibras</li>
+                        <li><strong>NO tirar:</strong> Jalar el cable con fuerza puede desprender los conectores</li>
+                        <li><strong>NO apretar:</strong> Ajustar demasiado los conectores puede romper el vidrio interno
+                        </li>
+                        <li><strong>NO exponer al sol:</strong> El calor extremo puede dañar el recubrimiento protector
+                        </li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: bold; color: #e53e3e;">Si el cable se daña, la reparación
+                        puede ser costosa y dejar tu hogar sin internet durante días. ¡Trátalo con el máximo cuidado!
+                    </p>
+                </div>
+
+                <div class="fiber-visual">
+                    <div class="fiber-card">
+                        <div class="fiber-card-icon">✅</div>
+                        <h4>Sí Hacer</h4>
+                        <p>matentener cable integro</p>
+                        <p>Proteger de mascotas</p>
+                        <p>proteger de niños pequeños</p>
+                    </div>
+                    <div class="fiber-card">
+                        <div class="fiber-card-icon">❌</div>
+                        <h4>No Hacer</h4>
+                        <p>No manipula cable</p>
+                        <p>Pisar o aplastar</p>
+                        <p>Tirar con fuerza</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>🔧 Cómo Proteger tu Cable de Fibra</h3>
+                    <ul>
+                        <li>Instala canaletas o protectores plásticos en zonas de tránsito antes de que se haga la
+                            instalcion de Mundo, así el instalador deja mejor protejido el cable de Fibra.</li>
+
+                        <li>Evita que mascotas o niños jueguen cerca del cable.</li>
+                        <li>No coloques muebles pesados sobre el cable.</li>
+                        <li>Si necesitas moverlo o modificarlo, llama a Mundo y pide una modificacion de instalación.
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="back-button" onclick="changePage('remote')">← Volver al Inicio</button>
             </div>
+        </div>
 
-            <!-- Logo -->
-            <div class="logo-section">
-                <div>mundo GO!</div>
+        <!-- Página: Cuidado de Equipos -->
+        <div id="carePage" class="page">
+            <div class="content-page">
+                <h2>🛡️ Cuidado de Equipos de Internet y Decodificadores Mundo Go</h2>
+
+                <div class="content-section">
+                    <h3>🌡️ Condiciones Ambientales Ideales</h3>
+                    <p>Tus equipos Mundo Go necesitan un ambiente adecuado para funcionar correctamente:</p>
+                    <ul>
+                        <li><strong>Temperatura:</strong> Mantener entre 15°C y 25°C, evitar calor extremo</li>
+                        <li><strong>Ventilación:</strong> Asegurar circulación de aire, nunca cubrir con telas</li>
+                        <li><strong>Humedad:</strong> Evitar lugares húmedos o con condensación</li>
+                        <li><strong>Polvo:</strong> Limpiar regularmente con aire comprimido o paño suave</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>🔥 Peligros del Sobrecalentamiento</h4>
+                    <p>El calor excesivo puede:</p>
+                    <ul>
+                        <li>Reducir la vida útil del equipo hasta en un 50%</li>
+                        <li>Causar reinicios automáticos y pérdida de conexión</li>
+                        <li>Dañar componentes internos de forma permanente</li>
+                        <li>Provocar incendios en casos extremos</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>📍 Ubicación Correcta de los Equipos</h3>
+
+                    <div class="highlight-box">
+                        <h4>✅ Lugares IDEALES para dejar tus Decos Mundo Go:</h4>
+                        <ul>
+                            <li>Superficies planas y estables</li>
+                            <li>Áreas ventiladas con espacio libre alrededor (mínimo 10 cm)</li>
+                            <li>Lugares secos y protegidos de la luz solar directa</li>
+                            <li>Altura media para mejor distribución de señal WiFi</li>
+                            <li>Lejos de electrodomésticos que generen calor</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>❌ Lugares que DEBES EVITAR:</h4>
+                        <ul>
+
+                            <li>Debajo de cojines, mantas o ropa</li>
+                            <li>Cerca de estufas, radiadores o ventanas soleadas</li>
+                            <li>En el suelo donde puedan pisarse o acumular polvo</li>
+                            <li>Cerca de fuentes de agua (cocina, baño, plantas)</li>
+                            <li>Apilados unos sobre otros sin ventilación</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>🔌 Conexiones Eléctricas</h3>
+                    <ul>
+
+                        <li><strong>Evita sobrecargas:</strong> No conectes muchos equipos en un solo enchufe</li>
+                        <li><strong>Enchufes en buen estado:</strong> Revisa que no haya cables pelados o enchufes
+                            flojos</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>🧹 Mantenimiento Regular</h3>
+
+                    <div class="fiber-visual">
+                        <div class="fiber-card">
+                            <div class="fiber-card-icon">📅</div>
+                            <h4>Semanal</h4>
+                            <p>Limpieza superficial con paño seco</p>
+                            <p>Verificar luces indicadoras</p>
+                        </div>
+                        <div class="fiber-card">
+                            <div class="fiber-card-icon">📆</div>
+                            <h4>Mensual</h4>
+                            <p>Limpieza profunda de polvo</p>
+                            <p>Revisar cables y conexiones</p>
+                        </div>
+                    </div>
+
+                    <p><strong>Pasos para limpiar correctamente:</strong></p>
+                    <ul>
+                        <li>Desconecta el equipo de la corriente eléctrica</li>
+                        <li>Usa un paño suave y seco o ligeramente húmedo</li>
+                        <li>Aplica aire comprimido en las rejillas de ventilación</li>
+                        <li>No uses productos químicos agresivos o agua en exceso</li>
+                        <li>Espera a que esté completamente seco antes de reconectar</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>🔄 Reinicio y Solución de Problemas</h3>
+                    <p><strong>Reinicio correcto del módem/router:</strong></p>
+                    <ul>
+                        <li>Desconecta el cable de alimentación</li>
+                        <li>Espera 30 segundos completos</li>
+                        <li>Reconecta el cable de alimentación</li>
+                        <li>Espera 2-3 minutos a que reinicie completamente</li>
+                        <li>Verifica que todas las luces estén normales</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>💰 Ahorro y Durabilidad</h4>
+                    <p>Un equipo bien cuidado puede durar entre 5 y 10 años. El mal mantenimiento puede reducir esta
+                        vida útil a solo 2-3 años, obligándote a reemplazos costosos y frecuentes. ¡El cuidado adecuado
+                        es una inversión!</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>📞 ¿Cuándo Llamar al Técnico?</h4>
+                    <p>Contacta al servicio técnico si observas:</p>
+                    <ul>
+                        <li>Luces rojas o intermitentes constantes</li>
+                        <li>Olor a quemado o sobrecalentamiento excesivo</li>
+                        <li>Ruidos extraños del equipo</li>
+                        <li>Daño físico visible en el equipo o cables</li>
+                    </ul>
+                </div>
+
+                <button class="back-button" onclick="changePage('remote')">← Volver al Inicio</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal para información de botones -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closeModal()">×</button>
@@ -553,7 +1036,7 @@
             tv: {
                 icon: '📺',
                 title: 'Botón Power TV',
-                description: 'Este botón enciende y apaga tu televisor. Presiona una vez para encender el TV y otra vez para apagarlo. Es útil cuando quieres controlar el televisor directamente sin afectar el decodificador.  "Ahora este botón solo sirve si el control está VINCULADO al televisor, de lo contrario NO SERVIRÁ." '
+                description: 'Este botón enciende y apaga tu televisor. Presiona una vez para encender el TV y otra vez para apagarlo. Es útil cuando quieres controlar el televisor directamente sin afectar el decodificador. "Ahora este botón solo sirve si el control está VINCULADO al televisor, de lo contrario NO SERVIRÁ."'
             },
             box: {
                 icon: '📡',
@@ -593,7 +1076,7 @@
             home: {
                 icon: '🏠',
                 title: 'Botón Inicio',
-                description: 'Te lleva directamente a la pantalla principal. Es útil para regresar rápidamente las aplicaciones. Es la casa en donde se alojan todas las aplicaciones '
+                description: 'Te lleva directamente a la pantalla principal. Es útil para regresar rápidamente las aplicaciones. Es la casa en donde se alojan todas las aplicaciones'
             },
             volume: {
                 icon: '🔊',
@@ -651,7 +1134,48 @@
             }
         }
 
-        // Close modal with ESC key
+        function changePage(pageId) {
+            // Ocultar todas las páginas
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Mostrar la página seleccionada
+            const pages = {
+                'remote': 'remotePage',
+                'telecom': 'telecomPage',
+                'fiber': 'fiberPage',
+                'care': 'carePage'
+            };
+
+            const pageElement = document.getElementById(pages[pageId]);
+            if (pageElement) {
+                pageElement.classList.add('active');
+
+                // Actualizar el título del header
+                const titles = {
+                    'remote': '📺 Guía del Control Remoto Mundo',
+                    'telecom': '🌐 Telecomunicaciones',
+                    'fiber': '💡 Fibra Óptica',
+                    'care': '🛡️ Cuidado de Equipos'
+                };
+
+                const subtitles = {
+                    'remote': 'Haz clic en cualquier botón para conocer su función',
+                    'telecom': 'Aprende sobre las comunicaciones modernas',
+                    'fiber': 'Tecnología de alta velocidad que ofrece Mundo con mucho cariño',
+                    'care': 'Mantén tus dispositivos en perfecto estado'
+                };
+
+                document.getElementById('mainTitle').textContent = titles[pageId];
+                document.getElementById('mainSubtitle').textContent = subtitles[pageId];
+
+                // Scroll hacia arriba
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Cerrar modal con tecla ESC
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 closeModal();
