@@ -8,7 +8,7 @@ const buttonInfo = {
     tv: {
         icon: '📺',
         title: 'Botón Power TV',
-        description: 'Este botón enciende y apaga tu televisor. Presiona una vez para encender el TV y otra vez para apagarlo. Es útil cuando quieres controlar el televisor directamente sin afectar el decodificador. <br><br><strong>⚠️ IMPORTANTE:</strong> Este botón solo funciona si el control está VINCULADO al televisor, de lo contrario NO SERVIRÁ.'
+        description: 'Este botón enciende y apaga tu televisor. Presiona una vez para encender el TV y otra vez para apagarlo. Es útil cuando quieres controlar el televisor directamente sin afectar el decodificador. <br><br><strong>⚠️ IMPORTANTE:</strong> Este botón solo funciona si el control está VINCULADO al televisor, de lo contrario NO SERVIRÁ. No es recomendable vincularlo!'
     },
 
     box: {
@@ -27,7 +27,7 @@ const buttonInfo = {
     voice: {
         icon: '🎤',
         title: 'Asistente de Voz',
-        description: 'Activa el control por voz. Mantén presionado este botón y habla para buscar contenido, cambiar canales, abrir apps o hacer preguntas.<br><br><strong>Ejemplos:</strong><br>• "Buscar películas de acción"<br>• "Abrir Netflix"<br>• "Canal 5"'
+        description: 'Activa el control por voz. Mantén presionado este botón y habla para buscar contenido, cambiar canales, abrir apps o hacer preguntas.<br><br><strong>Ejemplos:</strong><br>• "Buscar películas de acción"<br>• "Abrir Netflix"<br>• "Canal 11"'
     },
 
     settings: {
@@ -40,7 +40,7 @@ const buttonInfo = {
     ok: {
         icon: '✓',
         title: 'Botón OK/Enter',
-        description: 'Confirma la selección actual o ejecuta la opción destacada en el menú. También funciona como botón de pausa/reproducción en algunos contenidos. Es el botón principal para confirmar acciones.'
+        description: 'Confirma la selección actual o ejecuta la opción destacada en el menú. También funciona como botón de pausa/reproducción en algunos contenidos. Es el botón principal para confirmar acciones. ⚠️ Si mantienes el botón presionado, puede abrir opciones adicionales. Se desplega una ventana en donte puedes elegir como: grabar, elegir Canales mediante grilla antigua, agregar a favoritos, entre otras opciones.'
     },
 
     // BOTONES CARDINALES (Navegación direccional)
@@ -65,14 +65,14 @@ const buttonInfo = {
     right: {
         icon: '➡️',
         title: 'Botón Derecha',
-        description: 'Navega hacia la derecha en los menús horizontales. Úsalo para:<br><br>• Avanzar entre categorías<br>• Adelantar el tiempo de reproducción (fast forward)<br>• Explorar opciones hacia la derecha<br>• Acceder a más contenido'
+        description: 'Navega hacia la derecha en los menús horizontales. Úsalo para:<br><br>• Avanzar entre categorías<br>• Adelantar el tiempo de reproducción (fast forward)<br>• Explorar opciones hacia la derecha<br>• Acceder la grilla de canales en vivo'
     },
 
     // NAVEGACIÓN ADICIONAL
     back: {
         icon: '←',
         title: 'Botón Regresar',
-        description: 'Retrocede a la pantalla anterior o cierra el menú actual. Además, sirve para abrir y cerrar el menú de canales. Útil para navegar hacia atrás en los menús o salir de aplicaciones sin cerrarlas completamente.'
+        description: 'Retrocede a la pantalla anterior o cierra el menú actual. Además, sirve para abrir y cerrar el menú de canales grafico. Útil para navegar hacia atrás en los menús o salir de aplicaciones sin cerrarlas completamente.'
     },
 
     guide: {
